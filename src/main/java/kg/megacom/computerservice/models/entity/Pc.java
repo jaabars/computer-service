@@ -11,6 +11,7 @@ public class Pc {
 
     @Id
     private int code;
+
     @ManyToOne
     @JoinColumn(name = "model")
     private Product product;

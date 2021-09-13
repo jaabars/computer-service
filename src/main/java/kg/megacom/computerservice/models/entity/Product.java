@@ -1,20 +1,26 @@
 package kg.megacom.computerservice.models.entity;
 
 import kg.megacom.computerservice.models.enums.Type;
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "Product")
-@Data
+@Getter
+@Setter
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Product {
 
-    private String maker;
+     String maker;
 
     @Id
-    private String model;
+     String model;
 
     @Enumerated(EnumType.STRING)
-    private Type type;
+     Type type;
 }

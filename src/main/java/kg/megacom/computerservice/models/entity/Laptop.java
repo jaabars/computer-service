@@ -14,9 +14,9 @@ public class Laptop {
     @ManyToOne
     @JoinColumn(name = "model")
     private Product product;
-    private short speed;
-    private short ram;
+    private int speed;
+    private int ram;
     private double hd;
-    private String cd;
     private double price;
+    private  int screen;
 }

@@ -10,15 +10,31 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/pc")
 public class PcController {
 
-    @Autowired
     private PcService pcService;
-    @GetMapping("/getAllPriceLessThan500")
-    public List<PcDto1Ex> getAllPcLessThan500(@RequestParam Double price){
+
+    @Autowired
+    public PcController(PcService pcService){
+        this.pcService = pcService;
+    }
+
+    @GetMapping("/ex1")
+    public List<Pc> ex1 (@RequestParam double price){
+        return pcService.getAllPcsLessThan(price);
+    }
+
+    @GetMapping("/ex1Mapper")
+    public List<PcDto1Ex> getAllLess(@RequestParam double price){
         return pcService.getAllPcLessThan(price);
     }
+    @GetMapping("/ex1HashMap")
+    public List<Map<String,String>> getAllPcLess(@RequestParam double price){
+        return pcService.getAllLessThan(price);
+    }
+
 }

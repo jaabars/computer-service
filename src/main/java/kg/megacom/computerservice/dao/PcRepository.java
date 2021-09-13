@@ -8,5 +8,6 @@ import java.util.List;
 
 @Repository
 public interface PcRepository extends JpaRepository<Pc,Integer> {
+
     List<Pc> findAllByPriceIsLessThan(double price);
 }
